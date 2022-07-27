@@ -4,7 +4,10 @@ import { onServerPrefetch, ref, onMounted } from "vue";
 const foodData = ref();
 
 const getData = async () => {
-  foodData.value = (await import("@/food-data.json")).default;
+  const data = (await import("@/food-data.json")).default;
+  if(data){
+    foodData.value = data
+  }
 };
 onServerPrefetch(getData);
 onMounted(()=>{

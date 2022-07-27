@@ -26,3 +26,8 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+.vite-ssg-temp
+.firebase
+.firebaserc
+firebase.json
