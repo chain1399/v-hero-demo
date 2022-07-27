@@ -1,7 +1,7 @@
 import { fileURLToPath, URL } from 'node:url'
-import vue from '@vitejs/plugin-vue'
 import type { UserConfig } from "vite";
 import type { RouteRecord } from "vue-router";
+import vue from '@vitejs/plugin-vue'
 
 interface MyUserConfig extends UserConfig {
   ssgOptions?: {
@@ -9,7 +9,9 @@ interface MyUserConfig extends UserConfig {
   };
 }
 
-declare function defineConfig(config: MyUserConfig | Promise<MyUserConfig>): MyUserConfig
+function defineConfig(config: MyUserConfig | Promise<MyUserConfig>){
+  return config
+}
 
 const foodId = [1, 2, 3, 4, 5, 6];
 
@@ -19,6 +21,9 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  build: {
+    outDir: "docs"
   },
   ssgOptions: {
     includedRoutes(path: any, routes: RouteRecord[]) {
