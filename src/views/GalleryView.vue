@@ -19,7 +19,7 @@ onMounted(()=>{
       <div class="box-wrapper">
         <div class="gallery">
           <router-link
-            :to="`food/${food.id}`"
+            :to="`/food/${food.id}`"
             v-for="(food, i) in foodData"
             :key="food.id"
           >

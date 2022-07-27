@@ -16,13 +16,16 @@ function defineConfig(config: MyUserConfig | Promise<MyUserConfig>){
 const foodId = [1, 2, 3, 4, 5, 6];
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue({
+    reactivityTransform: true,
+    
+  })],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: "",
+  base: "./",
   build: {
     outDir: "docs"
   },

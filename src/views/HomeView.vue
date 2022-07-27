@@ -34,7 +34,7 @@ onMounted(()=>{
         <RouterLink
           class="food-list"
           v-for="food in foodData"
-          :to="`food/${food.id}`"
+          :to="`/food/${food.id}`"
           :key="food.id"
         >
           <div class="img">
